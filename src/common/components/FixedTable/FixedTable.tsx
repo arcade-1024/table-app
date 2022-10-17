@@ -2,32 +2,21 @@ import React from "react";
 import { ReactNode } from "react";
 import styles from "../../../../styles/utilities.module.css";
 interface FixedTablePropTypes {
-	headers: ReactNode[];
 	children: ReactNode;
 	className?: string;
 }
 export function FixedTable({
 	children,
-	headers,
 	className,
 }: FixedTablePropTypes) {
 	return (
-		<>
-			<div className="flex executionHeaderShadow">
-				<thead className="bg-indigo-50 text-gray-600 dark:bg-stone-800 dark:text-gray-50  w-full  block">
-					<tr className="w-full inline-flex text-sm font-semibold text-left uppercase">
-						{headers.map((header, index) => header)}
-					</tr>
-				</thead>
-			</div>
-			<table className="table-fixed w-full">
-				<tbody
-					className={`inline-block overflow-y-auto w-full ${styles.scrollBarThin} ${className}`}
-				>
-					{children}
-				</tbody>
-			</table>
-		</>
+		<table className="table-fixed w-full">
+			<tbody
+				className={`inline-block overflow-y-auto w-full ${styles.scrollBarThin} ${className}`}
+			>
+				{children}
+			</tbody>
+		</table>
 	);
 }
 

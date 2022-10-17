@@ -1,31 +1,33 @@
-import { ReactNode } from "react";
+import { ReactNode, useContext } from "react";
 import { X } from "react-feather";
 import { UserDataInterface } from "../../../container/User/UserContainer";
+import { StoreContext } from "../../../contexts/StoreContext";
+import { RootStore } from "../../../stores/RootStore";
 export interface CardInterface {
 	id: number;
 	cardTitle: ReactNode;
 	cardBody: string;
 	tags: string[];
-	userData: UserDataInterface[];
-	setUserData: React.Dispatch<React.SetStateAction<UserDataInterface[]>>;
+	// setUserData: React.Dispatch<React.SetStateAction<UserDataInterface[]>>;
 }
 export default function Card({
 	id,
 	tags,
 	cardBody,
 	cardTitle,
-	setUserData,
-	userData,
+	// setUserData,
 }: CardInterface) {
-	const onDeleteClick = (id: number) => {
-		setUserData(userData.filter((user) => user.id !== id));
-	};
+	const { userStore } = useContext<RootStore>(StoreContext);
+
+	// const onDeleteClick = (id: number) => {
+	// 	setUserData(userData.filter((user) => user.id !== id));
+	// };
 	return (
 		<>
-			<div className="max-w-lg overflow-hidden shadow-lg bg-white dark:bg-stone-700 rounded-lg relative">
+			<div className="w-full overflow-hidden shadow-lg bg-white dark:bg-stone-600 rounded-lg relative">
 				<button
 					className="absolute right-2 top-2 text-gray-600 dark:text-gray-300"
-					onClick={() => onDeleteClick(id)}
+					onClick={() => userStore.deleteUserData(id)}
 				>
 					<X />
 				</button>

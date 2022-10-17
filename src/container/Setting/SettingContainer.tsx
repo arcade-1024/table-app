@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import NavBar from "../../common/components/NavBar/NavBar";
 import ToggleButton from "../../common/components/ToggleButton/ToggleButton";
 import PageLayout from "../../common/layout/PageLayout/PageLayout";
+import SearchBar from "../../common/components/SearchBar/SearchBar";
 
 const SettingContainer = () => {
 	const { theme, systemTheme, setTheme } = useTheme();
@@ -20,9 +21,10 @@ const SettingContainer = () => {
 				tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim
 				veniam, quis nostrud exercitation ullamco.
 			</span>
-			<div className="mx-12">
+			<SearchBar />
+			<div className="">
 				<div
-					className={`px-6 py-6 mb-4 bg-white dark:bg-stone-600 rounded-lg shadow-md flex items-center w-full justify-between mt-8`}
+					className={`px-6 py-6 mb-4 bg-white dark:bg-stone-600 rounded-lg shadow-md flex items-center w-full justify-between mt-4`}
 				>
 					<div className="flex-1">
 						<div className="flex items-center">
